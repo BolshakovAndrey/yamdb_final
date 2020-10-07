@@ -13,7 +13,7 @@ class TestDockerfileCompose:
         except FileNotFoundError:
             assert False, 'Проверьте, что добавили файл docker_compose.yaml'
 
-        assert re.search(r'image:\s+postgres:latest', docker_compose), \
+        assert re.search(r'image:\s+postgres:', docker_compose), \
             'Проверьте, что добавили образ postgres:latest в файл docker_compose'
         assert re.search(r'build:\s+\.', docker_compose), \
             'Проверьте, что добавили сборку контейнера из Dockerfile в файл docker_compose'
