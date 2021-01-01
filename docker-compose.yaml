@@ -13,7 +13,7 @@ services:
     env_file:
       - ./.env
   yambd:
-#    image: BolshakovAndrey/yamdb:latest
+    image: admin/yamdb:latest
     restart: always
     volumes:
       - ./static_volume:/code/static
@@ -31,4 +31,4 @@ services:
     ports:
       - 80:80
     depends_on:
-      - yamdb
+      - yambd
