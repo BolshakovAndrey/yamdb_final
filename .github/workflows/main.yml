@@ -88,7 +88,7 @@ jobs:
             cd ./code
             sudo docker rmi mydockerid2505/yamdb_final -f
             sudo docker pull mydockerid2505/yamdb_final:latest
-            sudo docker-compose up --force-recreate -d web
+            sudo docker-compose up --force-recreate -d ydmdb
 
 
   send_message:
