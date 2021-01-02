@@ -56,7 +56,7 @@ jobs:
           #          username: ${{ secrets.USER }}
           username: admin
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+#          passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             sudo docker pull mydockerid2505/yamdb_final
             sudo docker-compose up --force-recreate --no-deps -d yamdb
