@@ -1,6 +1,6 @@
 FROM python:3.8.5 
  
-LABEL name='API YamDB Yandex Practicum' version=3.0
+LABEL name='API YamDB Yandex Practicum' version=3.1
  
 WORKDIR /code 
  
