@@ -69,9 +69,6 @@ jobs:
           dump-env --template=.env.template --prefix='SECRET_' > .env
 
 
-    runs-on: ubuntu-latest
-    needs: build_and_push_to_docker_hub
-    steps:
       - name: Copy file via ssh password
       uses: appleboy/scp-action@master
       with:
