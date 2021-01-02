@@ -42,36 +42,24 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: mydockerid2505/yamdb_final:latest
+          tags: mydockerid2505/yamdb_final
 
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
-    if: github.ref == 'refs/heads/master'
     steps:
-      - uses: actions/checkout@master
-      - name: copy configs to server
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          source: 'docker-compose.yaml, nginx/nginx.conf'
-          target: '/home/admin/code'
-
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
+#          host: ${{ secrets.HOST }}
+          host: 130.193.57.163
+#          username: ${{ secrets.USER }}
+          username: admin
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo cd yamdb
-            sudo docker pull fr33vvay/yamdb:latest
-            sudo docker-compose up --force-recreate --no-deps -d web
+            sudo docker pull mydockerid2505/yamdb_final
+            sudo docker-compose up --force-recreate --no-deps -d yamdb
             sudo docker image prune -f
 
   send_message:

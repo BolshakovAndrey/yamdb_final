@@ -12,7 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env
-  yambd:
+  yamdb:
     image: admin/yamdb:latest
     restart: always
     volumes:
@@ -24,11 +24,10 @@ services:
 
   nginx:
     image: nginx:1.19.4
-    restart: unless-stopped
     volumes:
       - ./static_volume:/code/static
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 80:80
     depends_on:
-      - yambd
+      - yamdb
