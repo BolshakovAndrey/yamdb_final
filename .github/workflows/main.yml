@@ -67,17 +67,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install dump-env
           dump-env --template=.env.template --prefix='SECRET_' > .env
-
-
       - name: Copy file via ssh password
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
-        port: 22
-        source: "./.env, nginx/default.conf, ./docker-compose.yaml"
-        target: "/home/admin/code"
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          source: "./.env, nginx/default.conf, ./docker-compose.yaml"
+          target: "/home/admin/code"
 
       - name: Executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
@@ -89,8 +87,9 @@ jobs:
             cd ~
             cd ./code
             sudo docker rmi mydockerid2505/yamdb_final -f
-            udo docker pull mydockerid2505/yamdb_final:latest
+            sudo docker pull mydockerid2505/yamdb_final:latest
             sudo docker-compose up --force-recreate -d web
+
 
   send_message:
     runs-on: ubuntu-latest
