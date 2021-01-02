@@ -19,7 +19,7 @@ jobs:
           pip install flake8 pytest
           pip install -r requirements.txt
       - name: Lint with flake8
-        run: flake8 . --exclude tests,api/migrations,api_yamdb/settings.py,api_yamdb/urls.py
+        run: flake8 . --config=.flake8
 
       - name: Test with pytest
         run: pytest
