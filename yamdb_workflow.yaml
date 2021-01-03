@@ -1,6 +1,6 @@
 name: Yamdb-app_workflow
 
-on: [ push ]
+on: [push]
 
 jobs:
   tests:
