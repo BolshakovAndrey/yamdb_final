@@ -1,6 +1,6 @@
 name: Yamdb-app_workflow
 
-on: [push]
+on: [ push ]
 
 jobs:
   tests:
@@ -51,16 +51,15 @@ jobs:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-#          host: ${{ secrets.HOST }}
-          host: 130.193.57.163
-#          username: ${{ secrets.USER }}
-          username: admin
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull mydockerid2505/yamdb_final
-            sudo docker-compose up --force-recreate --no-deps -d yamdb
-            sudo docker image prune -f
+            sudo docker pull mydockerid2505/yamdb_final:latest
+            sudo docker stop $(sudo docker ps -a -q)
+            sudo docker run --rm -d -p 5000:5000 mydockerid2505/yamdb_final:latest
+
 
   send_message:
     runs-on: ubuntu-latest
