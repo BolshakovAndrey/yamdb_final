@@ -3,7 +3,7 @@
 ![Yamdb-app_workflow](https://github.com/BolshakovAndrey/yamdb_final/workflows/Yamdb-app_workflow/badge.svg)
 
 
-REST API для сервиса ***YaMDb** версия без Docker
+REST API для сервиса ***YaMDb** версия c Docker
 База отзывов о фильмах, книгах и музыке. 
 
 Групповой итоговый проект студентов _Яндекс.Практикум_ по курсу **"Работа с внешними API"**
