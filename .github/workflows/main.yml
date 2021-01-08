@@ -55,7 +55,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: "./docker-compose.yaml,.nginx/"
+          source: "./docker-compose.yaml,"
           target: "~/"
 
       - name: executing remote ssh commands to deploy
@@ -66,6 +66,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
+            cd ~/
             sudo docker-compose down
             sudo docker pull mydockerid2505/yamdb_final:latest
             sudo docker-compose up -d --build
