@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.com/BolshakovAndrey/api_yamdb.svg?branch=master)](https://travis-ci.com/BolshakovAndrey/api_yamdb)
 ![Yamdb-app_workflow](https://github.com/BolshakovAndrey/yamdb_final/workflows/Yamdb-app_workflow/badge.svg)
 
+Сайт развернут по адресу 
 
 REST API для сервиса ***YaMDb** версия c Docker
 База отзывов о фильмах, книгах и музыке. 
