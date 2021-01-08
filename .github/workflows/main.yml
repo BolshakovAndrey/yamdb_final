@@ -49,15 +49,15 @@ jobs:
     needs: build_and_push_to_docker_hub
     steps:
       - name: Copy file via ssh password
-          uses: appleboy/scp-action@master
-          with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USER }}
-            key: ${{ secrets.SSH_KEY }}
-            passphrase: ${{ secrets.PASSPHRASE }}
-            port: 22
-            source: "./.env, nginx/default.conf, ./docker-compose.yaml"
-            target: "/home/yc-user/code"
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          port: 22
+          source: "./.env, nginx/default.conf, ./docker-compose.yaml"
+          target: "/home/yc-user/code"
 
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
