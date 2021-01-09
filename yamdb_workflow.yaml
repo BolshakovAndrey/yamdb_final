@@ -1,6 +1,6 @@
 name: Yamdb-app_workflow
 
-on: [push]
+on: [ push ]
 
 jobs:
   tests:
@@ -56,7 +56,10 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
-          source: "./.env, nginx/default.conf, ./docker-compose.yaml"
+          #          source: "./.env, nginx/default.conf, ./docker-compose.yaml"
+          source: "Dev/yamdb_final/.env, /
+          Dev/yamdb_final/nginx/default.conf, /
+          Dev/yamdb_final/docker-compose.yaml"
           target: "/home/yc-user/code"
 
       - name: executing remote ssh commands to deploy
