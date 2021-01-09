@@ -1,6 +1,6 @@
 name: Yamdb-app_workflow
 
-on: [ push ]
+on: [push]
 
 jobs:
   tests:
@@ -48,18 +48,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
     steps:
+      - uses: actions/checkout@v2
       - name: Copy file via ssh password
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
-          #          source: "./.env, nginx/default.conf, ./docker-compose.yaml"
-          source: "Dev/yamdb_final/.env, /
-          Dev/yamdb_final/nginx/default.conf, /
-          Dev/yamdb_final/docker-compose.yaml"
+          source: "./.env, nginx/default.conf, ./docker-compose.yaml"
           target: "/home/yc-user/code"
 
       - name: executing remote ssh commands to deploy
