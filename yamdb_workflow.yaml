@@ -70,9 +70,10 @@ jobs:
           script: |
             cd ~
             cd ./code
-            sudo docker-compose down
+            sudo docker-compose stop
+            sudo docker rmi mydockerid2505/yamdb_final  -f
             sudo docker pull mydockerid2505/yamdb_final:latest
-            sudo docker-compose up -d --build
+            sudo docker-compose up --force-recreate -d yamdb
 
 
   send_message:
