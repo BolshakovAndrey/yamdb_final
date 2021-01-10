@@ -56,7 +56,6 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          port: 22
           source: "./.env, nginx/default.conf, ./docker-compose.yaml"
           target: "/home/yc-user/code"
 
@@ -72,6 +71,7 @@ jobs:
             cd ~
             cd ./code
             sudo docker-compose down
+            sudo docker rmi mydockerid2505/yamdb_final:latest -f
             sudo docker pull mydockerid2505/yamdb_final:latest
             sudo docker-compose up
 
