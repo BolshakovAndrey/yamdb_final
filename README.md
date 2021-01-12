@@ -97,6 +97,7 @@ TELEGRAM_TOKEN # Токен бота
 
 
 **Участники:**
+
 [Большаков Андрей.](https://github.com/BolshakovAndrey/yamdb_final) 
 - Категории (Categories), жанры (Genres) и произведения (Titles): модели, view и эндпойнты для них и рейтинги. 
 - Докеризация, разработка процесса CI (непрерывной интеграции) с использованием GitHub Actions. 
