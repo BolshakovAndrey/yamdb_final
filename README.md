@@ -97,14 +97,14 @@ TELEGRAM_TOKEN # Токен бота
 
 
 **Участники:**
+[Большаков Андрей.](https://github.com/BolshakovAndrey/yamdb_final) 
+- Категории (Categories), жанры (Genres) и произведения (Titles): модели, view и эндпойнты для них и рейтинги. 
+- Докеризация, разработка процесса CI (непрерывной интеграции) с использованием GitHub Actions. 
+- Подготовка  к production и deploy на YandexCloud.
 
 [Гаврилов Павел.](https://github.com/Venatorr/api_yamdb)
 Управление пользователями (Auth и Users): система регистрации и аутентификации, права доступа, работа с токеном, система подтверждения e-mail, поля.
 
-[Большаков Андрей.](https://github.com/BolshakovAndrey/api_yamdb) 
-- Категории (Categories), жанры (Genres) и произведения (Titles): модели, view и эндпойнты для них и рейтинги. 
-- Докеризация разработка процесса CI (непрерывной интеграции) с использованием GitHub Actions. 
-- Подготовка и продакшн на YandexCloud.
 
 [Дробышев Артем.](https://github.com/stpdmnk/api_yamdb-1)
 Отзывы (Review) и комментарии (Comments): модели и view, эндпойнты, права доступа для запросов. Рейтинги произведений.
